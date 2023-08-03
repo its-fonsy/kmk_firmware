@@ -3,7 +3,7 @@ from kb import KMKKeyboard
 from kmk.keys import KC
 from kmk.modules.holdtap import HoldTap
 from kmk.modules.layers import Layers
-from kmk.modules.split import Split
+from kmk.modules.split import Split, SplitSide
 from storage import getmount
 
 keyboard = KMKKeyboard()
@@ -11,9 +11,15 @@ keyboard = KMKKeyboard()
 keyboard.modules.append(Layers())
 keyboard.modules.append(HoldTap())
 
+side = SplitSide.RIGHT if str(getmount('/').label)[-1] == 'R' else SplitSide.LEFT
+
+if side == SplitSide.RIGHT:
+    uart_pin = keyboard.uart_tx
+else:
+    uart_pin = keyboard.uart_rx
+
 split = Split(
-    data_pin = keyboard.data_pin,
-    use_pio = True,
+    data_pin = uart_pin
 )
 
 keyboard.modules.append(split)

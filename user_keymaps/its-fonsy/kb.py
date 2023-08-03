@@ -5,23 +5,24 @@ from kmk.scanners import DiodeOrientation
 
 class KMKKeyboard(_KMKKeyboard):
     row_pins = (
-        board.GP0,
-        board.GP1,
         board.GP2,
         board.GP3,
         board.GP4,
         board.GP5,
-    )
-    col_pins = (
         board.GP6,
         board.GP7,
+    )
+    col_pins = (
         board.GP8,
         board.GP9,
         board.GP10,
+        board.GP11,
         board.GP14,
+        board.GP15,
     )
     diode_orientation = DiodeOrientation.COL2ROW
-    data_pin = board.GP26
+    uart_tx = board.GP0
+    uart_rx = board.GP1
     # flake9: noqa
     # fmt: off
     coord_mapping = [
