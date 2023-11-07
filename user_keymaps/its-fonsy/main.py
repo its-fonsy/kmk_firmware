@@ -30,8 +30,8 @@ keyboard.modules.append(split)
 CTL_ESC = KC.HT(KC.ESC, KC.LCTRL)
 CTL_TAB = KC.HT(KC.TAB,  KC.RCTRL)
 
-SFT_ENT = KC.HT(KC.ENT,  KC.RSFT, tap_time=325)
-SFT_SPC = KC.HT(KC.SPC, KC.LSFT)
+SFT_ENT = KC.HT(KC.ENT, KC.RSFT, tap_time=200, prefer_hold=False)
+SFT_SPC = KC.HT(KC.SPC, KC.LSFT, tap_time=200, prefer_hold=False)
 
 GUI_DEL = KC.HT(KC.DEL, KC.LGUI)
 GUI_BSP = KC.HT(KC.BSPC, KC.RGUI)
